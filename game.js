@@ -18,4 +18,8 @@ function nextSequence() {
 
 nextSequence();
 
+$(".btn").on("click", function() {
+    alert("working");
+});
+
 
