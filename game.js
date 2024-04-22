@@ -17,13 +17,25 @@ function nextSequence() {
 
 nextSequence();
 
+//User Button Selection
 $(".btn").click(function() {
     const userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
     playSound(userChosenColour);
+    animatePress(userChosenColour);
 });
 
+//Sequence and Usersounds
 function playSound(name) {
     const audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
+}
+
+//Animation
+function animatePress(currentColour) {
+    $("#" + currentColour).addClass("pressed");
+
+    setTimeout(function() {
+        $("#" + currentColour).removeClass("pressed");
+    }, 100);
 }
